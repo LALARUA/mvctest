@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<script type="text/javascript">
+
+    window.onload=function (ev) {
+        $("#getDiFirewallList").click(function () {
+            $.ajax({
+                url : "/diFirewalls",
+                type : 'get',
+                dataType : 'json',
+                async: true,
+                success:function(result){
+                    alert(5)
+                }});
+
+        })
+
+    }
+
+</script>
+<body>
+
+    <div>
+        <button id="getDiFirewallList">查询防火墙</button>
+
+        <ul id="diFirewallList">
+            <li>防火墙1</li>
+            <li>防火墙2</li>
+        </ul>
+    </div>
+
+    <div>
+        <input id="policyFile" type="file">
+    </div>
+</body>
+</html>
