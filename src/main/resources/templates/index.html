@@ -11,13 +11,18 @@
     window.onload=function (ev) {
         $("#getDiFirewallList").click(function () {
             $.ajax({
-                url : "/diFirewalls",
+                url : "http://localhost:8081/di/di/external_getAllDiFirewalls.htm",
                 type : 'get',
                 dataType : 'json',
                 async: true,
+
                 success:function(result){
-                    alert(5)
+                    alert(result)
                 }});
+        })
+        $("#downloadReport").click(function () {
+
+            window.location.href = "http://localhost:8081/di/di/external_downloadReport.htm?policySetId=5&analyseType=0"
 
         })
 
@@ -26,8 +31,10 @@
 </script>
 <body>
 
+
+
     <div>
-        <button id="getDiFirewallList">查询防火墙</button>
+        <button type="button" id="getDiFirewallList">查询防火墙</button>
 
         <ul id="diFirewallList">
             <li>防火墙1</li>
@@ -35,8 +42,14 @@
         </ul>
     </div>
 
-    <div>
+    <div style="margin-top: 50px">
         <input id="policyFile" type="file">
+    </div>
+
+
+
+    <div style="margin-top: 50px">
+        <button style="" id="downloadReport">下载报表</button>
     </div>
 </body>
 </html>
